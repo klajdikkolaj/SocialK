@@ -1,0 +1,8 @@
+/Users/klajdikolaj/Reactivities/Domain/bin/Debug/netstandard2.1/Domain.deps.json
+/Users/klajdikolaj/Reactivities/Domain/bin/Debug/netstandard2.1/Domain.dll
+/Users/klajdikolaj/Reactivities/Domain/bin/Debug/netstandard2.1/Domain.pdb
+/Users/klajdikolaj/Reactivities/Domain/obj/Debug/netstandard2.1/Domain.csprojAssemblyReference.cache
+/Users/klajdikolaj/Reactivities/Domain/obj/Debug/netstandard2.1/Domain.AssemblyInfoInputs.cache
+/Users/klajdikolaj/Reactivities/Domain/obj/Debug/netstandard2.1/Domain.AssemblyInfo.cs
+/Users/klajdikolaj/Reactivities/Domain/obj/Debug/netstandard2.1/Domain.dll
+/Users/klajdikolaj/Reactivities/Domain/obj/Debug/netstandard2.1/Domain.pdb
