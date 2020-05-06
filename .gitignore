@@ -1,0 +1,6 @@
+bin 
+obj
+.idea
+.DS_Store
+appsettings.json
+*.h2.db
