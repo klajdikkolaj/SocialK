@@ -35,7 +35,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="eb41c615-730d-4f1d-b9f0-640335ae05cc" object-ref="schemas/main/tables/Activities" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="eb41c615-730d-4f1d-b9f0-640335ae05cc" />
@@ -51,6 +53,7 @@
         <condition column="Id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="eb41c615-730d-4f1d-b9f0-640335ae05cc" dataset="main.Activities" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
