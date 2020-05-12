@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7m6U0W36nuKnwZ+RkKVVO1UKhqsf8JM2hIvEAkeDdcwjmzpzza3kb3VI5JuhQgxxGsn6OZytpI04g7xAUg13yQ==",
+  "dgSpecHash": "AT4PxhaAEv8j4A62m/LQA38w8kHaZW4jUMDQcQeJGZIlvk29VeGmQZ6eFLhhwpLJCHbWGL3EAflu7sdRVmMMnQ==",
   "success": true,
   "projectFilePath": "/Users/klajdikolaj/Reactivities/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/klajdikolaj/.nuget/packages/mediatr/8.0.0/mediatr.8.0.0.nupkg.sha512",
+    "/Users/klajdikolaj/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/8.0.0/mediatr.extensions.microsoft.dependencyinjection.8.0.0.nupkg.sha512",
     "/Users/klajdikolaj/.nuget/packages/microsoft.csharp/4.6.0/microsoft.csharp.4.6.0.nupkg.sha512",
     "/Users/klajdikolaj/.nuget/packages/microsoft.data.sqlite.core/3.0.1/microsoft.data.sqlite.core.3.0.1.nupkg.sha512",
     "/Users/klajdikolaj/.nuget/packages/microsoft.dotnet.platformabstractions/3.0.1/microsoft.dotnet.platformabstractions.3.0.1.nupkg.sha512",
