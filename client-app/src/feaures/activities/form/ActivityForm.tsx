@@ -1,18 +1,18 @@
-import React, {useState, ChangeEvent, FormEvent} from 'react';
+import React, {useState, FormEvent, useContext} from 'react';
 import {Segment, Form, Button} from 'semantic-ui-react';
 import {IActivity} from '../../../app/models/activity';
 import {v4 as uuid} from 'uuid'
+import ActivityStore from '../../../app/stores/activityStore'
+import {observer} from 'mobx-react-lite';
 
 interface IProps {
-    setEditMode: (editmode: boolean) => void
     activity: IActivity
-    createActivity:(activity:IActivity) =>void
-    editActivity:(activity:IActivity) =>void
-    submitting:boolean
 }
 
 
-const ActivityForm: React.FC<IProps> = ({setEditMode, activity: initialFormState, createActivity, editActivity,submitting}) => {
+const ActivityForm: React.FC<IProps> = ({activity: initialFormState}) => {
+    const activityStore = useContext(ActivityStore);
+    const {createActivity, editActivity, submitting, cancelFormOpen} = activityStore
     const initializeForm = () => {
         if (initialFormState) {
             return initialFormState
@@ -29,23 +29,24 @@ const ActivityForm: React.FC<IProps> = ({setEditMode, activity: initialFormState
     }
 
     const [activity, setActivity] = useState<IActivity>(initializeForm);
-    
-    const handleSubmit = () =>{
-      if(activity.id.length === 0){
-          let newActivity = {
-              ...activity,
-              id: uuid()
-          }
-          createActivity(newActivity)
-      }else{
-          return editActivity(activity)
-      }
+
+    const handleSubmit = () => {
+        if (activity.id.length === 0) {
+            let newActivity = {
+                ...activity,
+                id: uuid()
+            }
+            createActivity(newActivity)
+        } else {
+            return editActivity(activity)
+        }
     }
-    
-    const handleInputChange = (event: FormEvent<HTMLInputElement|HTMLTextAreaElement>) => {
+
+    const handleInputChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = event.currentTarget
         setActivity({...activity, [name]: value})
     }
+
     return (
         <div>
             <Segment>
@@ -73,7 +74,7 @@ const ActivityForm: React.FC<IProps> = ({setEditMode, activity: initialFormState
                         placeholder={activity.date}/>
                     <Form.Input
                         onChange={handleInputChange}
-                        name='city' 
+                        name='city'
                         value={activity.city}
                         placeholder={activity.city}/>
                     <Form.Input
@@ -83,7 +84,7 @@ const ActivityForm: React.FC<IProps> = ({setEditMode, activity: initialFormState
                         placeholder={activity.venue}/>
                     <Button.Group widths={2}>
                         <Button color="green" type="submit" content={"Submit"} loading={submitting}/>
-                        <Button type={'button'} content={"Cancel"} onClick={() => setEditMode(false)}/>
+                        <Button type={'button'} content={"Cancel"} onClick={cancelFormOpen}/>
                     </Button.Group>
                 </Form>
             </Segment>
@@ -92,4 +93,4 @@ const ActivityForm: React.FC<IProps> = ({setEditMode, activity: initialFormState
     );
 };
 
-export default ActivityForm;
+export default observer(ActivityForm);

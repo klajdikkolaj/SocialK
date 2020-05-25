@@ -1,32 +1,29 @@
-import React, {FC} from 'react';
-import {Card, Image, Icon, Button} from 'semantic-ui-react';
-import {IActivity} from '../../../app/models/activity';
-
-interface IProps {
-    activity: IActivity;
-    setEditMode: (editMode: boolean) => void
-    setSelectedActivity: (activity: IActivity | null) => void
-}
+import React, {FC, useContext} from 'react';
+import {Card, Image, Button} from 'semantic-ui-react';
+import ActivityStore from '../../../app/stores/activityStore'
+import {observer} from 'mobx-react-lite';
 
 
-const ActivityDetails: FC<IProps> = ({activity, setEditMode, setSelectedActivity}) => {
+const ActivityDetails: FC = () => {
 
+    const activityStore = useContext(ActivityStore);
+    const {selectedActivity: activity, openEditForm, cancelSelectedActivity} = activityStore;
     return (
         <Card fluid={true}>
-            <Image src={`/assets/categoryImages/${activity.category}.jpg`} wrapped ui={false}/>
+            <Image src={`/assets/categoryImages/${activity!.category}.jpg`} wrapped ui={false}/>
             <Card.Content>
-                <Card.Header>{activity.title}</Card.Header>
+                <Card.Header>{activity!.title}</Card.Header>
                 <Card.Meta>
-                    <span>{activity.date}</span>
+                    <span>{activity!.date}</span>
                 </Card.Meta>
                 <Card.Description>
-                    {activity.description}
+                    {activity!.description}
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
                 <Button.Group widths={2}>
-                    <Button basic color={"blue"} content={'Edit'} onClick={() => setEditMode(true)}/>
-                    <Button basic color={"blue"} content={'Cancel'} onClick={(() => setSelectedActivity(null))}/>
+                    <Button basic color={"blue"} content={'Edit'} onClick={() => openEditForm(activity!.id)}/>
+                    <Button basic color={"blue"} content={'Cancel'} onClick={cancelSelectedActivity}/>
                 </Button.Group>
 
             </Card.Content>
@@ -34,4 +31,4 @@ const ActivityDetails: FC<IProps> = ({activity, setEditMode, setSelectedActivity
     );
 };
 
-export default ActivityDetails;
+export default observer(ActivityDetails);
