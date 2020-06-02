@@ -8,6 +8,7 @@ import ActivityDetailedHeader from './ActivityDetailedHeader';
 import ActivityDetailedInfo from './ActivityDetailedInfo';
 import ActivityDetailChat from './ActivityDetailChat';
 import ActivityDetailedSidebar from './ActivitydetailedSidebar';
+import NotFound from '../../../app/layout/NotFound';
 
 interface DetailParams {
     id: string
@@ -20,12 +21,18 @@ const ActivityDetails: FC<RouteComponentProps<DetailParams>> = ({history, match}
 
     useEffect(() => {
 
-        loadActivity(match.params.id)
+        loadActivity(match.params.id);
+        //before it was .catch(()=>{
+        //             history.push('/notfound')
+        //         })
 
-    }, [loadActivity, match.params.id]);
+    }, [loadActivity, match.params.id, history]);
 
 
-    if (loadingInitial || !activity) return <LoadingComponent content='loading activity...'/>
+    if (loadingInitial) return <LoadingComponent content='loading activity...'/>
+    if(!activity){
+        return <h1>Activity not found</h1>
+    } 
 
 
     return (
