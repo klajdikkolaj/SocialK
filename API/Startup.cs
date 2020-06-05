@@ -28,7 +28,10 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                .AddFluentValidation(cfg => { cfg.RegisterValidatorsFromAssemblyContaining<Create>(); });
+                .AddFluentValidation(cfg =>
+                {
+                    cfg.RegisterValidatorsFromAssemblyContaining<Create>();
+                });
             services.AddDbContext<DataContext>(opt =>
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddCors(options =>

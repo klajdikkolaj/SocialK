@@ -8,7 +8,6 @@ import ActivityDetailedHeader from './ActivityDetailedHeader';
 import ActivityDetailedInfo from './ActivityDetailedInfo';
 import ActivityDetailChat from './ActivityDetailChat';
 import ActivityDetailedSidebar from './ActivitydetailedSidebar';
-import NotFound from '../../../app/layout/NotFound';
 
 interface DetailParams {
     id: string

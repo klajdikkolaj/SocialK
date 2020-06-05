@@ -3,7 +3,6 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Errors;
-using Domain;
 using FluentValidation;
 using MediatR;
 using Persistance;
