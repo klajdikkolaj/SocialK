@@ -17,7 +17,7 @@ namespace Application.Validators
                 .WithMessage("Password must contain  1 lowercase letter")
                 .Matches("[0-9]")
                 .WithMessage("Password must contain  1 number")
-                .Matches("[^a -zA-Z0-9]")
+                .Matches("[^a-zA-Z0-9]")
                 .WithMessage("Password must contain  1 non alphanumeric ");
             return options;
         }

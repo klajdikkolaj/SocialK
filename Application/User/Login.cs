@@ -53,7 +53,7 @@ namespace Application.User
                 var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
                 if (result.Succeeded)
                 {
-                    //TODO: generate token
+                    
                     return new User
                     {
                         DisplayName = user.DisplayName,
